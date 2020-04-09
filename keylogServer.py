@@ -29,5 +29,5 @@ if __name__ == "__main__":
     print("Creating folder for logs")
     os.mkdir('logs')
 
-  print(f"Log Server is listening on port :" +str(port))
+  print("Log Server is listening on port :" +str(port))
   app.run(debug=True, host='0.0.0.0', port=port)
